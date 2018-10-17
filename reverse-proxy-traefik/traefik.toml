@@ -1,0 +1,34 @@
+debug = false
+
+logLevel = "ERROR"
+defaultEntryPoints = ["https","http"]
+
+[entryPoints]
+[entryPoints.http]
+address = ":80"
+[entryPoints.http.redirect]
+entryPoint = "https"
+[entryPoints.https]
+address = ":443"
+[entryPoints.https.tls]
+
+[acme]
+email = "ilham@prodase.tech"
+storage = "acme.json"
+entryPoint = "https"
+onHostRule = true
+caServer = "https://acme-v02.api.letsencrypt.org/directory"
+[acme.httpChallenge]
+entryPoint = "http"
+
+[docker]
+endpoint = "unix://var/run/docker.sock"
+domain = "punyaku.localhost"
+watch = true
+exposedByDefault = false
+swarmMode = false
+network = "ilhammhdd-docker-net"
+
+[api]
+dashboard = true
+entrypoint = "traefik"

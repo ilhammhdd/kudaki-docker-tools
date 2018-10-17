@@ -1,0 +1,21 @@
+version: "3.3"
+
+services:
+  reverse-proxy-traefik:
+    image: traefik
+    container_name: traefik
+    command: --docker --logLevel=ERROR
+    ports:
+      - "80:80"
+      - "443:443"
+    networks:
+      - ilhammhdd-docker-net
+    volumes:
+      - ./acme.json:/acme.json
+      - ./traefik.toml:/traefik.toml
+      - /var/run/docker.sock:/var/run/docker.sock
+
+networks:
+  ilhammhdd-docker-net:
+    external:
+      name: ilhammhdd-docker-net

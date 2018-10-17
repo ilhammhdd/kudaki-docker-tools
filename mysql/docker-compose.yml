@@ -1,0 +1,35 @@
+version: "3.3"
+services:
+  db-mysql:
+    image: mysql
+    command: --default-authentication-plugin=mysql_native_password
+    environment:
+      MYSQL_ROOT_PASSWORD : mysqlrocks
+    container_name: db-mysql
+    volumes:
+      - type: volume
+        source: ilhammhdd-db-mysql-volume
+        target: /var/lib/mysql
+    ports:
+      - "3306:3306"
+    networks:
+      - ilhammhdd-docker-net
+    restart: on-failure
+  
+  db-mysql-adminer:
+    image: adminer
+    ports:
+      - "8089:8080"
+    restart: on-failure
+    networks:
+      - ilhammhdd-docker-net
+
+networks:
+  ilhammhdd-docker-net:
+    external:
+      name: ilhammhdd-docker-net
+
+volumes:
+  ilhammhdd-db-mysql-volume:
+    external:
+      name: ilhammhdd-db-mysql-volume
