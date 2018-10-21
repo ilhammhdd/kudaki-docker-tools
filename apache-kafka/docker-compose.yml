@@ -4,13 +4,13 @@ services:
     image: wurstmeister/zookeeper
     container_name: zookeeper
     ports:
-      - "2181"
+      - "2181:2181"
     networks:
       - ilhammhdd-docker-net
-    volumes:
-      - type: volume
-        source: ilhammhdd-zookeeper-data-volume
-        target: /opt/zookeeper-3.4.9/data
+    # volumes:
+    #   - type: volume
+    #     source: ilhammhdd-zookeeper-data-volume
+    #     target: /opt/zookeeper-3.4.9/data
   kafka:
     image: wurstmeister/kafka
     container_name: kafka
@@ -21,9 +21,9 @@ services:
       KAFKA_ZOOKEEPER_CONNECT: zookeeper:2181
     volumes:
       - /var/run/docker.sock:/var/run/docker.sock
-      - type: volume
-        source: ilhammhdd-kafka-volume
-        target: /kafka
+      # - type: volume
+      #   source: ilhammhdd-kafka-volume
+      #   target: /kafka
     networks:
       - ilhammhdd-docker-net
 
@@ -32,10 +32,10 @@ networks:
     external:
       name: ilhammhdd-docker-net
       
-volumes:
-  ilhammhdd-kafka-volume:
-    external:
-      name: ilhammhdd-kafka-volume
-  ilhammhdd-zookeeper-data-volume:
-    external:
-      name: ilhammhdd-zookeeper-data-volume
+# volumes:
+#   ilhammhdd-kafka-volume:
+#     external:
+#       name: ilhammhdd-kafka-volume
+#   ilhammhdd-zookeeper-data-volume:
+#     external:
+#       name: ilhammhdd-zookeeper-data-volume
