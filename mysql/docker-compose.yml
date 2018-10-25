@@ -3,6 +3,7 @@ services:
   db-mysql:
     image: mysql
     command: --default-authentication-plugin=mysql_native_password
+    hostname: db-mysql
     environment:
       MYSQL_ROOT_PASSWORD : mysqlrocks
     container_name: db-mysql
