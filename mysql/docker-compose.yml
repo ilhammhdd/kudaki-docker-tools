@@ -16,21 +16,11 @@ services:
     networks:
       - ilhammhdd-docker-net
     restart: on-failure
-  
-  db-mysql-adminer:
-    image: adminer
-    ports:
-      - "8089:8080"
-    restart: on-failure
-    networks:
-      - ilhammhdd-docker-net
 
 networks:
   ilhammhdd-docker-net:
-    external:
-      name: ilhammhdd-docker-net
+    external: true
 
 volumes:
   ilhammhdd-db-mysql-volume:
-    external:
-      name: ilhammhdd-db-mysql-volume
+    external: true
