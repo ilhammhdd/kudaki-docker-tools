@@ -17,9 +17,12 @@ email = "ilham@prodase.tech"
 storage = "acme.json"
 entryPoint = "https"
 onHostRule = true
-caServer = "https://acme-v02.api.letsencrypt.org/directory"
+onDemand = false
 [acme.httpChallenge]
 entryPoint = "http"
+# [acme.dnsChallenge]
+# provider = "cloudflare"
+# delayBeforeCheck = 0
 
 [docker]
 endpoint = "unix://var/run/docker.sock"
@@ -28,7 +31,3 @@ watch = true
 exposedByDefault = false
 swarmMode = false
 network = "ilhammhdd-docker-net"
-
-[api]
-dashboard = true
-entrypoint = "traefik"
