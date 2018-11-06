@@ -18,5 +18,4 @@ services:
 
 networks:
   ilhammhdd-docker-net:
-    external:
-      name: ilhammhdd-docker-net
+    external: true

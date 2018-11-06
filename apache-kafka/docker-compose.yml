@@ -1,14 +1,20 @@
 version: "3.3"
+
 services:
+
   zookeeper:
-    image: wurstmeister/zookeeper
+    image: zookeeper
     container_name: zookeeper
     hostname: zookeeper
+    environment:
+      ZOO_MY_ID: 1
+      ZOO_SERVERS: server.1=0.0.0.0:2888:3888
     ports:
       - "2181:2181"
     networks:
       - ilhammhdd-docker-net
-    restart: on-failure
+    restart: always
+
   kafka:
     image: wurstmeister/kafka
     container_name: kafka
@@ -25,15 +31,30 @@ services:
       - /var/run/docker.sock:/var/run/docker.sock
       - type: volume
         source: ilhammhdd-kafka-volume
-        target: /kafka
+        target: /var/lib/kafka/data
     networks:
       - ilhammhdd-docker-net
-    restart: on-failure
+    restart: always
+
+  schema-registry:
+    image: confluentinc/cp-schema-registry
+    hostname: schema-registry
+    container_name: schema-registry
+    depends_on:
+      - zookeeper
+      - kafka
+    ports:
+      - "8081:8081"
+    environment:
+      SCHEMA_REGISTRY_HOST_NAME: schema-registry
+      SCHEMA_REGISTRY_KAFKASTORE_CONNECTION_URL: 'zookeeper:2181'
+    networks:
+      - ilhammhdd-docker-net
+    restart: always
 
 networks:
   ilhammhdd-docker-net:
-    external:
-      name: ilhammhdd-docker-net
+    external: true
       
 volumes:
   ilhammhdd-kafka-volume:
