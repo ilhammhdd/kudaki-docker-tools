@@ -29,9 +29,7 @@ services:
       KAFKA_CREATE_TOPICS: "item:1:1,shop:1:1,mountain:1:1,file:1:1,event:1:1,user:1:1,review:1:1,rent:1:1"
     volumes:
       - /var/run/docker.sock:/var/run/docker.sock
-      - type: volume
-        source: ilhammhdd-kafka-volume
-        target: /var/lib/kafka/data
+      - ./kafka-data:/kafka
     networks:
       - ilhammhdd-docker-net
     restart: always
@@ -54,8 +52,4 @@ services:
 
 networks:
   ilhammhdd-docker-net:
-    external: true
-      
-volumes:
-  ilhammhdd-kafka-volume:
     external: true
