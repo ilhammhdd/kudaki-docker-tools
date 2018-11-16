@@ -26,26 +26,12 @@ services:
       KAFKA_ZOOKEEPER_CONNECT: zookeeper:2181
       KAFKA_BROKER_ID: 1
       KAFKA_HEAP_OPTS: "-Xmx256M -Xms128M"
-      KAFKA_CREATE_TOPICS: "item:1:1,shop:1:1,mountain:1:1,file:1:1,event:1:1,user:1:1,review:1:1,rent:1:1"
+      KAFKA_CREATE_TOPICS: "Item:1:1,Shop:1:1,Mountain:1:1,File:1:1,Event:1:1,User:1:1,Review:1:1,Rent:1:1"
     volumes:
       - /var/run/docker.sock:/var/run/docker.sock
-      - ./kafka-data:/kafka
-    networks:
-      - ilhammhdd-docker-net
-    restart: always
-
-  schema-registry:
-    image: confluentinc/cp-schema-registry
-    hostname: schema-registry
-    container_name: schema-registry
-    depends_on:
-      - zookeeper
-      - kafka
-    ports:
-      - "8081:8081"
-    environment:
-      SCHEMA_REGISTRY_HOST_NAME: schema-registry
-      SCHEMA_REGISTRY_KAFKASTORE_CONNECTION_URL: 'zookeeper:2181'
+      - type: bind
+        source: ./kafka-data
+        target: /kafka
     networks:
       - ilhammhdd-docker-net
     restart: always

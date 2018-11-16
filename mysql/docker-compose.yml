@@ -8,7 +8,9 @@ services:
       MYSQL_ROOT_PASSWORD : mysqlrocks
     container_name: db-mysql
     volumes:
-      - ./mysql-data:/var/lib/mysql
+      - type: bind
+        source: ./mysql-data
+        target: /var/lib/mysql
     ports:
       - "3306:3306"
     networks:

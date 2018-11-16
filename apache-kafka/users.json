@@ -1,0 +1,3 @@
+{
+	"schema":"{\"type\":\"record\",\"name\":\"users\",\"namespace\":\"user_service\",\"doc\":\"this schema define the user entity\",\"fields\":[{\"name\":\"id\",\"type\":\"string\"},{\"name\":\"username\",\"type\":\"string\"},{\"name\":\"password\",\"type\":\"string\"},{\"name\":\"token\",\"type\":\"string\"},{\"name\":\"activated\",\"type\":\"boolean\"}]}"
+}

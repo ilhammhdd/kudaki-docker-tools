@@ -1,0 +1,3 @@
+{
+    "schema":"{\"type\":\"record\",\"name\":\"roles\",\"namespace\":\"user_service\",\"doc\":\"this schema define the user entity\",\"fields\":[{\"name\":\"id\",\"type\":\"string\"},{\"name\":\"name\",\"type\":\"string\"}]}"
+}

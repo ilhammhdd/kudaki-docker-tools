@@ -1,0 +1,3 @@
+{
+    "schema":"{\"type\":\"record\",\"name\":\"hiker_profiles\",\"namespace\":\"user_service\",\"doc\":\"this schema define the user entity\",\"fields\":[{\"name\":\"id\",\"type\":\"string\"},{\"name\":\"user_id\",\"type\":\"string\"},{\"name\":\"file_id\",\"type\":\"string\"},{\"name\":\"first_name\",\"type\":\"string\"},{\"name\":\"last_name\",\"type\":\"string\"},{\"name\":\"telephone\",\"type\":\"string\"},{\"name\":\"address\",\"type\":\"string\"}]}"
+}
