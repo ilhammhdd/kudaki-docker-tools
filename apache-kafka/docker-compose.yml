@@ -26,12 +26,10 @@ services:
       KAFKA_ZOOKEEPER_CONNECT: zookeeper:2181
       KAFKA_BROKER_ID: 1
       KAFKA_HEAP_OPTS: "-Xmx256M -Xms128M"
-      KAFKA_CREATE_TOPICS: "Item:1:1,Shop:1:1,Mountain:1:1,File:1:1,Event:1:1,User:1:1,Review:1:1,Rent:1:1"
+      KAFKA_CREATE_TOPICS: "Item:1:1,Shop:1:1,Mountain:1:1,File:1:1,Event:1:1,User:1:1,Review:1:1,Rent:1:1,EventSourceList:1:1"
     volumes:
       - /var/run/docker.sock:/var/run/docker.sock
-      - type: bind
-        source: ./kafka-data
-        target: /kafka
+      - ./kafka-data:/kafka
     networks:
       - ilhammhdd-docker-net
     restart: always
