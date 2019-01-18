@@ -20,13 +20,12 @@ services:
     container_name: kafka
     hostname: kafka
     ports:
-      - "9092"
+      - "9092:9092"
     environment:
       KAFKA_ADVERTISED_HOST_NAME: "192.168.99.100"
       KAFKA_ZOOKEEPER_CONNECT: zookeeper:2181
       KAFKA_BROKER_ID: 1
-      KAFKA_HEAP_OPTS: "-Xmx256M -Xms128M"
-      KAFKA_CREATE_TOPICS: "Item:1:1,Shop:1:1,Mountain:1:1,File:1:1,Event:1:1,User:1:1,Review:1:1,Rent:1:1,EventSourceList:1:1"
+      KAFKA_CREATE_TOPICS: "USER:5:1,SHOP:5:1,MOUNTAIN:5:1,ITEM:5:1,REVIEW:5:1,EVENT:5:1,RENT:5:1,COMMAND:5:1"
     volumes:
       - /var/run/docker.sock:/var/run/docker.sock
       - ./kafka-data:/kafka

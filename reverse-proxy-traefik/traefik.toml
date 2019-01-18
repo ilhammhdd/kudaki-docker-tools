@@ -13,20 +13,18 @@ address = ":443"
 [entryPoints.https.tls]
 
 [acme]
-email = "ilham@prodase.tech"
+email = "punyaku@ilhammhd.com"
 storage = "acme.json"
 entryPoint = "https"
 onHostRule = true
 onDemand = false
-[acme.httpChallenge]
-entryPoint = "http"
-# [acme.dnsChallenge]
-# provider = "cloudflare"
-# delayBeforeCheck = 0
+[acme.dnsChallenge]
+provider = "cloudflare"
+delayBeforeCheck = 0
 
 [docker]
 endpoint = "unix://var/run/docker.sock"
-domain = "punyaku.localhost"
+domain = "ilhammhd.com"
 watch = true
 exposedByDefault = false
 swarmMode = false
