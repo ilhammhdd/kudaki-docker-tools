@@ -1,20 +1,21 @@
 version: "3.3"
+
 services:
-  db-mysql:
+  mysql:
     image: mysql
     command: --default-authentication-plugin=mysql_native_password
-    hostname: db-mysql
+    hostname: mysql
     environment:
       MYSQL_ROOT_PASSWORD : mysqlrocks
-    container_name: db-mysql
+    container_name: mysql
     volumes:
       - ./mysql-data:/var/lib/mysql
     ports:
       - "3306:3306"
     networks:
-      - ilhammhdd-docker-net
+      - kudaki-docker-net
     restart: always
 
 networks:
-  ilhammhdd-docker-net:
+  kudaki-docker-net:
     external: true

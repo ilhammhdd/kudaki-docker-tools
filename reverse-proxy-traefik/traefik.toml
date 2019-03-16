@@ -13,7 +13,7 @@ address = ":443"
 [entryPoints.https.tls]
 
 [acme]
-email = "punyaku@ilhammhd.com"
+email = "punyakami@kudaki.id"
 storage = "acme.json"
 entryPoint = "https"
 onHostRule = true
@@ -24,8 +24,8 @@ delayBeforeCheck = 0
 
 [docker]
 endpoint = "unix://var/run/docker.sock"
-domain = "ilhammhd.com"
+domain = "kudaki.id"
 watch = true
 exposedByDefault = false
 swarmMode = false
-network = "ilhammhdd-docker-net"
+network = "kudaki-docker-net"

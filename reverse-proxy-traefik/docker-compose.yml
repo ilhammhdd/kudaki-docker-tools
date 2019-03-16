@@ -1,7 +1,7 @@
 version: "3.3"
 
 services:
-  reverse-proxy-traefik:
+  traefik:
     image: traefik
     container_name: traefik
     command: --docker --logLevel=ERROR
@@ -9,7 +9,7 @@ services:
       - "80:80"
       - "443:443"
     networks:
-      - ilhammhdd-docker-net
+      - kudaki-docker-net
     volumes:
       - ./acme.json:/acme.json
       - ./traefik.toml:/traefik.toml
@@ -17,5 +17,5 @@ services:
     restart: on-failure
 
 networks:
-  ilhammhdd-docker-net:
+  kudaki-docker-net:
     external: true
