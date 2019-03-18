@@ -19,7 +19,7 @@ services:
     container_name: kudaki_kafka_container
     hostname: kudaki_kafka_host
     depends_on:
-      - zookeeper_service
+      - kudaki_zookeeper_service
     environment:
       KAFKA_BROKER_ID: 1
       KAFKA_ZOOKEEPER_CONNECT: kudaki_zookeeper_service:2181
