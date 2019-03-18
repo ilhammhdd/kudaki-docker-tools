@@ -2,7 +2,7 @@ version: "3"
 
 services:
   kudaki_zookeeper_service:
-    image: confluentinc/cp-zookeeper:latest
+    image: confluentinc/cp-zookeeper
     container_name: kudaki_zookeeper_container
     hostname: kudaki_zookeeper_host
     environment:
@@ -15,7 +15,7 @@ services:
       - kudaki-docker-net
   
   kudaki_kafka_service:
-    image: confluentinc/cp-kafka:latest
+    image: confluentinc/cp-kafka
     container_name: kudaki_kafka_container
     hostname: kudaki_kafka_host
     depends_on:
