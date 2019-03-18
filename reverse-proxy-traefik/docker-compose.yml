@@ -1,9 +1,9 @@
 version: "3.3"
 
 services:
-  traefik:
+  traefik_service:
     image: traefik
-    container_name: traefik
+    container_name: traefik_container
     command: --docker --logLevel=ERROR
     ports:
       - "80:80"
