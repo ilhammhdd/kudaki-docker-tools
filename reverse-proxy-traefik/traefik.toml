@@ -13,7 +13,7 @@ address = ":443"
 [entryPoints.https.tls]
 
 [acme]
-email = "punyakami@kudaki.id"
+email = "service@kudaki.id"
 storage = "acme.json"
 entryPoint = "https"
 onHostRule = true

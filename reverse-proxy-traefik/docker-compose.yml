@@ -14,6 +14,9 @@ services:
       - ./acme.json:/acme.json
       - ./traefik.toml:/traefik.toml
       - /var/run/docker.sock:/var/run/docker.sock
+    environment:
+      CLOUDFLARE_EMAIL: milham939@gmail.com
+      CLOUDFLARE_API_KEY: dd7722f5e6d5da663b117d4ee7fa3b70cf76d
     restart: on-failure
 
 networks:
