@@ -2,6 +2,7 @@ debug = false
 
 logLevel = "ERROR"
 defaultEntryPoints = ["https","http"]
+insecureSkipVerify = true
 
 [entryPoints]
 [entryPoints.http]
