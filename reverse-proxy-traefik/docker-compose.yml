@@ -11,14 +11,17 @@ services:
     networks:
       - kudaki-docker-net
     volumes:
-      - ./acme.json:/acme.json
       - ./traefik.toml:/traefik.toml
+      - ./rules.toml:/rules.toml
       - /var/run/docker.sock:/var/run/docker.sock
-    environment:
-      CLOUDFLARE_EMAIL: milham939@gmail.com
-      CLOUDFLARE_API_KEY: dd7722f5e6d5da663b117d4ee7fa3b70cf76d
+      - certs:/certs
     restart: on-failure
 
 networks:
   kudaki-docker-net:
     external: true
+
+volumes:
+  certs:
+    external:
+      name: certs
