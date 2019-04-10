@@ -14,11 +14,10 @@ address = ":443"
 
 [docker]
 endpoint = "unix:///var/run/docker.sock"
-domain = "kudaki.id"
+domain = "kudaki.id" #still can't figure out how to enable multiple domain
 watch = true
 exposedByDefault = true
 swarmMode = false
-network = "kudaki-docker-net"
 
 [file]
 filename = "rules.toml"
