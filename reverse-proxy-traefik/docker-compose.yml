@@ -16,6 +16,8 @@ services:
       - /var/run/docker.sock:/var/run/docker.sock
       - certs:/certs
     restart: on-failure
+    stdin_open: true
+    tty: true
 
 networks:
   kudaki-docker-net:
