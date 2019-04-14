@@ -7,8 +7,7 @@ services:
     hostname: kudaki_elasticsearch_host
     networks:
       - kudaki-docker-net:
-          aliases:
-            - kudaki_elasticsearch_service
+          aliases: kudaki_elasticsearch_service
     volumes:
       - type: volume
         source: kudaki_elasticsearch_volume
