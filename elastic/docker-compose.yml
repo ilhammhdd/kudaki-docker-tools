@@ -6,8 +6,7 @@ services:
     container_name: kudaki_elasticsearch_container
     hostname: kudaki_elasticsearch_host
     networks:
-      - kudaki-docker-net:
-          aliases: kudaki_elasticsearch_service
+      - kudaki-docker-net
     volumes:
       - type: volume
         source: kudaki_elasticsearch_volume
@@ -15,8 +14,8 @@ services:
     ports:
       - 9200:9200
     environment:
-      - node.name=es01
-      - cluster.initial_master_nodes=es01,es02
+      - node.name=kudaki_elasticsearch
+      - cluster.initial_master_nodes=kudaki_elasticsearch
       - cluster.name=docker-cluster
       - bootstrap.memory_lock=true
       - "ES_JAVA_OPTS=-Xms512m -Xmx512m"
