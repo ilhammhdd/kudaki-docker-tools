@@ -12,14 +12,12 @@ services:
         source: kudaki_elasticsearch_volume
         target: /usr/share/elasticsearch/data
     ports:
-      - 9200:9200
+      - 9200
     environment:
-      - node.name=kudaki_elasticsearch
-      - cluster.initial_master_nodes=kudaki_elasticsearch
-      - cluster.name=docker-cluster
-      - bootstrap.memory_lock=true
-      - "ES_JAVA_OPTS=-Xms512m -Xmx512m"
+      - "discovery.type=single-node"
+      - "ES_JAVA_OPTS=-Xms256m -Xmx256m"
     ulimits:
+      nproc: 262144
       memlock:
         soft: -1
         hard: -1
@@ -31,15 +29,16 @@ services:
     networks:
       - kudaki-docker-net
     ports:
-      - 5601
+      - 5601:5601
     labels:
       - traefik.docker.network=kudaki-docker-net
       - traefik.frontend.rule=Host:kibana.kudaki.id
-      - traefik.port=80
     environment:
       SERVER_NAME: kibana.kudaki.id
       ELASTICSEARCH_HOSTS: http://kudaki_elasticsearch_service:9200
-
+    depends_on: 
+      - kudaki_elasticsearch_service
+    
 networks:
   kudaki-docker-net:
     external: true
