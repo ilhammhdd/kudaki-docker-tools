@@ -15,3 +15,11 @@ entryPoints = ["https"]
 [tls.certificate]
 certFile = "/certs/kudaki.id.crt"
 keyFile = "/certs/kudaki.id.key"
+
+[[tls]]
+entryPoints = ["https"]
+[tls.certificate]
+certFile = "/certs/kibana.kudaki.id.crt"
+keyFile = "/certs/kibana.kudaki.id.key"
+
+
