@@ -16,6 +16,21 @@ services:
       - kudaki-docker-net
     restart: always
 
+  kudaki_mysql_dev_service:
+    image: mysql
+    command: --default-authentication-plugin=mysql_native_password
+    hostname: kudaki_mysql_dev_host
+    container_name: kudaki_mysql_dev_container
+    environment:
+      MYSQL_ROOT_PASSWORD : mysqlrocks
+    volumes:
+      - ./mysql-data:/var/lib/mysql
+    ports:
+      - "3307:3307"
+    networks:
+      - kudaki-docker-net
+    restart: always
+
 networks:
   kudaki-docker-net:
     external: true
