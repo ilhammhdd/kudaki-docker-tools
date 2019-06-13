@@ -32,3 +32,7 @@ services:
 networks:
   kudaki-docker-net:
     external: true
+
+volumes:
+  kudaki-redisearch:
+  kudaki-redisearch-dev:
