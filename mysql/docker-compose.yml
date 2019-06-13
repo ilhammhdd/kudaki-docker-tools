@@ -26,7 +26,7 @@ services:
     volumes:
       - ./mysql-dev-data:/var/lib/mysql
     ports:
-      - "3307:3307"
+      - "3307:3306"
     networks:
       - kudaki-docker-net
     restart: always
