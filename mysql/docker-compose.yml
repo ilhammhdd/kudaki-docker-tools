@@ -9,7 +9,7 @@ services:
     environment:
       MYSQL_ROOT_PASSWORD : mysqlrocks
     volumes:
-      - ./mysql-data:/var/lib/mysql
+      - /home/kudaki-data/mysql-data:/var/lib/mysql
     ports:
       - "3306:3306"
     networks:
@@ -24,7 +24,7 @@ services:
     environment:
       MYSQL_ROOT_PASSWORD : mysqlrocks
     volumes:
-      - ./mysql-dev-data:/var/lib/mysql
+      - /home/kudaki-data/mysql-dev-data:/var/lib/mysql
     ports:
       - "3307:3306"
     networks:
