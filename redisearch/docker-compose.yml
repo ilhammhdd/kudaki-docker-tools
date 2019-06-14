@@ -24,7 +24,7 @@ services:
         aliases:
           - kudaki_redisearch_dev_service
     ports:
-      - "6380"
+      - "6380:6379"
     volumes:
       - kudaki-redisearch-dev:/data
     command: redis-server --loadmodule /usr/lib/redis/modules/redisearch.so --save 86400 10 43200 1000 3600 10000
