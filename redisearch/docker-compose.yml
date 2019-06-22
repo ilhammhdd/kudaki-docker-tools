@@ -14,21 +14,7 @@ services:
     volumes:
       - kudaki-redisearch:/data
     command: redis-server --loadmodule /usr/lib/redis/modules/redisearch.so --save 86400 10 43200 1000 3600 10000
-  
-  kudaki_redisearch_dev_service:
-    image: redislabs/redisearch
-    hostname: kudaki_redisearch_dev_host
-    container_name: kudaki_redisearch_dev_container
-    networks:
-      kudaki-docker-net:
-        aliases:
-          - kudaki_redisearch_dev_service
-    ports:
-      - "6380:6379"
-    volumes:
-      - kudaki-redisearch-dev:/data
-    command: redis-server --loadmodule /usr/lib/redis/modules/redisearch.so --save 86400 10 43200 1000 3600 10000
-
+    
 networks:
   kudaki-docker-net:
     external: true

@@ -10,7 +10,8 @@ CREATE TABLE IF NOT EXISTS users (
   `token` TEXT,
   `role` ENUM('ADMIN', 'USER', 'KUDAKI_TEAM', 'ORGANIZER'),
   `phone_number` VARCHAR(255),
-  `account_type` ENUM('NATIVE', 'GOOGLE', 'FACEBOOK')
+  `account_type` ENUM('NATIVE', 'GOOGLE', 'FACEBOOK'),
+  `created_at` BIGINT UNSIGNED,
 );
 CREATE TABLE IF NOT EXISTS profiles(
   `id` BIGINT UNSIGNED NOT NULL PRIMARY KEY AUTO_INCREMENT,
@@ -19,16 +20,19 @@ CREATE TABLE IF NOT EXISTS profiles(
   `full_name` VARCHAR(255),
   `photo` VARCHAR(255),
   `reputation` INT(20) UNSIGNED,
+  `created_at` BIGINT UNSIGNED,
   FOREIGN KEY(user_uuid) REFERENCES users(uuid) ON DELETE CASCADE
 );
 CREATE TABLE IF NOT EXISTS unverified_users(
   `id` BIGINT UNSIGNED NOT NULL PRIMARY KEY AUTO_INCREMENT,
   `user_uuid` VARCHAR(64) NOT NULL UNIQUE,
+  `created_at` BIGINT UNSIGNED,
   FOREIGN KEY(user_uuid) REFERENCES users(uuid) ON DELETE CASCADE
 );
 CREATE TABLE IF NOT EXISTS reset_passwords(
   `id` BIGINT UNSIGNED NOT NULL PRIMARY KEY AUTO_INCREMENT,
   `user_uuid` VARCHAR(64) NOT NULL UNIQUE,
   `token` TEXT,
+  `created_at` BIGINT UNSIGNED,
   FOREIGN KEY(user_uuid) REFERENCES users(uuid) ON DELETE CASCADE
 );
