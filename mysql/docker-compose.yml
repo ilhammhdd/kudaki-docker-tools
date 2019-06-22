@@ -13,7 +13,9 @@ services:
     ports:
       - "3306:3306"
     networks:
-      - kudaki-docker-net
+      kudaki-docker-net:
+        aliases:
+          - kudaki_mysql_service
     restart: always
 
   kudaki_mysql_replica_service:
@@ -28,7 +30,9 @@ services:
     ports:
       - "3308:3306"
     networks:
-      - kudaki-docker-net
+      kudaki-docker-net:
+        aliases:
+          - kudaki_mysql_replica_service
     restart: always
 
   kudaki_mysql_dev_service:
@@ -43,12 +47,14 @@ services:
     ports:
       - "3307:3306"
     networks:
-      - kudaki-docker-net
+      kudaki-docker-net:
+        aliases:
+          - kudaki_mysql_dev_service
     restart: always
 
   kudaki_mysql_dev_replica_service:
     image: mysql
-    command: --default-authentication-plugin=mysql_native_password
+    command: --default-authentication-plugin=mysql_native_password --bind-address=
     hostname: kudaki_mysql_dev_replica_host
     container_name: kudaki_mysql_dev_replica_container
     environment:
@@ -58,7 +64,9 @@ services:
     ports:
       - "3309:3306"
     networks:
-      - kudaki-docker-net
+     kudaki-docker-net:
+      aliases:
+        - kudaki_mysql_dev_replica_service
     restart: always
 
 networks:
