@@ -24,7 +24,7 @@ services:
     hostname: kudaki_mysql_replica_host
     container_name: kudaki_mysql_replica_container
     environment:
-      MYSQL_ROOT_PASSWORD : mysqlrocks
+      MYSQL_ROOT_PASSWORD : mysqlreplicarocks
     volumes:
       - /home/kudaki-data/mysql-replica-data:/var/lib/mysql
     ports:
