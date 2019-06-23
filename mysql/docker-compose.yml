@@ -4,7 +4,6 @@ services:
   kudaki_mysql_service:
     image: mysql
     command: --default-authentication-plugin=mysql_native_password
-            #  --bind-address=kudaki_mysql_dev_replica_service --server-id=1 --log-bin=/var/log/mysql/mysql-bin.log --binlog-do-db=kudaki_rental --binlog-do-db=kudaki_store --binlog-do-db=kudaki_user
     hostname: kudaki_mysql_host
     container_name: kudaki_mysql_container
     environment:
@@ -22,7 +21,6 @@ services:
   kudaki_mysql_replica_service:
     image: mysql
     command: --default-authentication-plugin=mysql_native_password
-            #  --super-read-only=ON --server-id=2 --relay-log=/var/log/mysql/mysql-relay-bin.log --log-bin=/var/log/mysql/mysql-bin.log --binlog-do-db=kudaki_rental --binlog-do-db=kudaki_store --binlog-do-db=kudaki_user
     hostname: kudaki_mysql_replica_host
     container_name: kudaki_mysql_replica_container
     environment:
