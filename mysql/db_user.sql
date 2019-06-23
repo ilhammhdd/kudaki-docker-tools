@@ -1,6 +1,6 @@
 CREATE DATABASE IF NOT EXISTS kudaki_user DEFAULT COLLATE = utf8_general_ci;
-CREATE USER IF NOT EXISTS 'kudaki_user' @'localhost' IDENTIFIED BY 'kudakiuserrocks';
-GRANT ALL PRIVILEGES ON kudaki_user.* TO 'kudaki_user' @'localhost' WITH GRANT OPTION;
+CREATE USER IF NOT EXISTS 'kudaki_user_repo' @'localhost' IDENTIFIED BY 'kudakiuserreporocks';
+GRANT ALL PRIVILEGES ON kudaki_user.* TO 'kudaki_user_repo' @'localhost' WITH GRANT OPTION;
 USE kudaki_user;
 CREATE TABLE IF NOT EXISTS users (
   `id` BIGINT UNSIGNED NOT NULL PRIMARY KEY AUTO_INCREMENT,

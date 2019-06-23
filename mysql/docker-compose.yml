@@ -30,7 +30,7 @@ services:
     volumes:
       - /home/kudaki-data/mysql-replica-data:/var/lib/mysql
     ports:
-      - "3308:3306"
+      - "3307:3306"
     networks:
       kudaki-docker-net:
         aliases:
