@@ -18,14 +18,18 @@ CREATE TABLE IF NOT EXISTS cart_items(
   `item_uuid` VARCHAR(255),
   `total_item` INT(20),
   `total_price` INT(20) UNSIGNED,
+  `unit_price` INT(20),
+  `duration_from` BIGINT,
+  `duration_to` BIGINT,
   `created_at` BIGINT UNSIGNED,
   FOREIGN KEY(cart_uuid) REFERENCES carts(uuid) ON DELETE CASCADE
 );
-CREATE TABLE IF NOT EXISTS checkouts(
+CREATE TABLE IF NOT EXISTS returnment_confirmations(
   `id` BIGINT UNSIGNED NOT NULL PRIMARY KEY AUTO_INCREMENT,
-  `uuid` VARCHAR(255) NOT NULL UNIQUE,
-  `cart_uuid` VARCHAR(255),
-  `issued_at` DATETIME,
-  `created_at` BIGINT UNSIGNED,
-  FOREIGN KEY(cart_uuid) REFERENCES carts(uuid) ON DELETE CASCADE
+  `order_uuid` VARCHAR(255) NOT NULL UNIQUE,
+  `tenant_user_uuid` VARCHAR(255) NOT NULL,
+  `owner_user_uuid` VARCHAR(255) NOT NULL,
+  `tenant_confirmed` TINYINT(1),
+  `owner_confirmed` TINYINT(1),
+  `created_at` BIGINT UNSIGNED
 );

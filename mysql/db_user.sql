@@ -15,8 +15,8 @@ CREATE TABLE IF NOT EXISTS users (
 );
 CREATE TABLE IF NOT EXISTS profiles(
   `id` BIGINT UNSIGNED NOT NULL PRIMARY KEY AUTO_INCREMENT,
-  `user_uuid` VARCHAR(64) NOT NULL UNIQUE,
   `uuid` VARCHAR(64) NOT NULL UNIQUE,
+  `user_uuid` VARCHAR(64) NOT NULL UNIQUE,
   `full_name` VARCHAR(255),
   `photo` VARCHAR(255),
   `reputation` INT(20) UNSIGNED,
@@ -35,4 +35,17 @@ CREATE TABLE IF NOT EXISTS reset_passwords(
   `token` TEXT,
   `created_at` BIGINT UNSIGNED,
   FOREIGN KEY(user_uuid) REFERENCES users(uuid) ON DELETE CASCADE
+);
+CREATE TABLE IF NOT EXISTS addresses(
+  `id` BIGINT UNSIGNED NOT NULL PRIMARY KEY AUTO_INCREMENT,
+  `uuid` VARCHAR(64) NOT NULL UNIQUE,
+  `profile_uuid` VARCHAR(64) NOT NULL,
+  `full_address` TEXT,
+  `receiver_name` VARCHAR(255),
+  `receiver_phone_number` VARCHAR(255),
+  `zip_code` VARCHAR(255),
+  `latitude` DECIMAL(10, 8),
+  `longitude` DECIMAL(11, 8),
+  `created_at` BIGINT UNSIGNED,
+  FOREIGN KEY(profile_uuid) REFERENCES profiles(uuid) ON DELETE CASCADE
 );
