@@ -28,6 +28,7 @@ CREATE TABLE IF NOT EXISTS items(
   `color` VARCHAR(255),
   `unit_of_measurement` ENUM('MM', 'CM', 'DM', 'M', 'DAM', 'HM', 'KM'),
   `created_at` BIGINT UNSIGNED,
+  FULLTEXT(`name`, `description`),
   FOREIGN KEY(storefront_uuid) REFERENCES storefronts(uuid) ON DELETE CASCADE
 );
 CREATE TABLE IF NOT EXISTS item_reviews(

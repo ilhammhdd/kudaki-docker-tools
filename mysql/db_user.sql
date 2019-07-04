@@ -19,7 +19,6 @@ CREATE TABLE IF NOT EXISTS profiles(
   `user_uuid` VARCHAR(64) NOT NULL UNIQUE,
   `full_name` VARCHAR(255),
   `photo` VARCHAR(255),
-  `reputation` INT(20) UNSIGNED,
   `created_at` BIGINT UNSIGNED,
   FOREIGN KEY(user_uuid) REFERENCES users(uuid) ON DELETE CASCADE
 );

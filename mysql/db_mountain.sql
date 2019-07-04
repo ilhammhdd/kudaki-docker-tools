@@ -11,7 +11,8 @@ CREATE TABLE IF NOT EXISTS mountains (
   `longitude` DECIMAL(11, 8),
   `difficulty` DECIMAL(4.3),
   `description` TEXT,
-  `created_at` BIGINT UNSIGNED
+  `created_at` BIGINT UNSIGNED,
+  FULLTEXT(`name`, `description`)
 );
 CREATE TABLE IF NOT EXISTS mountain_files (
   `id` BIGINT UNSIGNED NOT NULL PRIMARY KEY AUTO_INCREMENT,

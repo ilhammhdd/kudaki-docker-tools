@@ -7,6 +7,8 @@ CREATE TABLE IF NOT EXISTS orders (
   `uuid` VARCHAR(64) NOT NULL UNIQUE,
   `cart_uuid` VARCHAR(64) NOT NULL,
   `address_uuid` VARCHAR(64) NOT NULL,
+  `owner_uuid` VARCHAR(64) NOT NULL,
+  `tenant_uuid` VARCHAR(64) NOT NULL,
   `order_num` VARCHAR(255),
   `status` ENUM('PENDING','APPROVED','DISAPPROVED','PROCESSED','RENTED','DONE'),
   `shipment_fee` INT(20),
