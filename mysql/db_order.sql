@@ -1,6 +1,6 @@
 CREATE DATABASE IF NOT EXISTS kudaki_order DEFAULT COLLATE = utf8_general_ci;
-CREATE USER IF NOT EXISTS 'kudaki_order_repo' @'localhost' IDENTIFIED BY 'kudakiorderreporocks';
-GRANT ALL PRIVILEGES ON kudaki_order.* TO 'kudaki_order_repo' @'localhost' WITH GRANT OPTION;
+CREATE USER IF NOT EXISTS 'kudaki_order_repo' @'%' IDENTIFIED BY 'kudakiorderreporocks';
+GRANT ALL PRIVILEGES ON kudaki_order.* TO 'kudaki_order_repo' @'%' WITH GRANT OPTION;
 USE kudaki_order;
 CREATE TABLE IF NOT EXISTS orders (
   `id` BIGINT UNSIGNED NOT NULL PRIMARY KEY AUTO_INCREMENT,

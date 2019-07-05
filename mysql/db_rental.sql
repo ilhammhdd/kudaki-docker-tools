@@ -1,6 +1,6 @@
 CREATE DATABASE IF NOT EXISTS kudaki_rental DEFAULT COLLATE = utf8_general_ci;
-CREATE USER IF NOT EXISTS 'kudaki_rental_repo' @'localhost' IDENTIFIED BY 'kudakirentalreporocks';
-GRANT ALL PRIVILEGES ON kudaki_rental.* TO 'kudaki_rental_repo' @'localhost' WITH GRANT OPTION;
+CREATE USER IF NOT EXISTS 'kudaki_rental_repo' @'%' IDENTIFIED BY 'kudakirentalreporocks';
+GRANT ALL PRIVILEGES ON kudaki_rental.* TO 'kudaki_rental_repo' @'%' WITH GRANT OPTION;
 USE kudaki_rental;
 CREATE TABLE IF NOT EXISTS carts(
   `id` BIGINT UNSIGNED NOT NULL PRIMARY KEY AUTO_INCREMENT,

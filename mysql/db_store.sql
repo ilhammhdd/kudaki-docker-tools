@@ -1,6 +1,6 @@
 CREATE DATABASE IF NOT EXISTS kudaki_store DEFAULT COLLATE = utf8_general_ci;
-CREATE USER IF NOT EXISTS 'kudaki_store_repo' @'localhost' IDENTIFIED BY 'kudakistorereporocks';
-GRANT ALL PRIVILEGES ON kudaki_store.* TO 'kudaki_store_repo' @'localhost' WITH GRANT OPTION;
+CREATE USER IF NOT EXISTS 'kudaki_store_repo' @'%' IDENTIFIED BY 'kudakistorereporocks';
+GRANT ALL PRIVILEGES ON kudaki_store.* TO 'kudaki_store_repo' @'%' WITH GRANT OPTION;
 USE kudaki_store;
 CREATE TABLE IF NOT EXISTS storefronts(
   `id` BIGINT UNSIGNED NOT NULL PRIMARY KEY AUTO_INCREMENT,
