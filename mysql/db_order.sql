@@ -10,7 +10,13 @@ CREATE TABLE IF NOT EXISTS orders (
   `owner_uuid` VARCHAR(64) NOT NULL,
   `tenant_uuid` VARCHAR(64) NOT NULL,
   `order_num` VARCHAR(255),
-  `status` ENUM('PENDING','APPROVED','DISAPPROVED','PROCESSED','RENTED','DONE'),
+  `status` ENUM(
+    'PENDING',
+    'APPROVED',
+    'DISAPPROVED',
+    'RENTED',
+    'DONE'
+  ),
   `shipment_fee` INT(20),
   `delivered` TINYINT(1),
   `created_at` BIGINT UNSIGNED
