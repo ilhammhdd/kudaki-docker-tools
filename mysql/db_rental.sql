@@ -33,3 +33,7 @@ CREATE TABLE IF NOT EXISTS returnment_confirmations(
   `owner_confirmed` TINYINT(1),
   `created_at` BIGINT UNSIGNED
 );
+CREATE TABLE IF NOT EXISTS  owner_returnment_confirmations(
+  `id` BIGINT UNSIGNED NOT NULL PRIMARY KEY AUTO_INCREMENT,
+  `uuid` VARCHAR(64) NOT NULL UNIQUE
+);

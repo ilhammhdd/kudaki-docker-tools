@@ -33,7 +33,9 @@ services:
       - "9092:9092"
     restart: always
     networks:
-      - kudaki-docker-net
+      kudaki-docker-net:
+        aliases: 
+          - kudaki_kafka_service:9092
 
 networks:
   kudaki-docker-net:
