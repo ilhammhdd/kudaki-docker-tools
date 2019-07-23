@@ -12,8 +12,7 @@ CREATE TABLE IF NOT EXISTS kudaki_events (
   `venue` VARCHAR(255),
   `description` TEXT,
   `ad_duration_from` BIGINT,
-  `ad_duration` INT(20),
-  `ad_duration_unit` ENUM('HOUR', 'DAY', 'WEEK', 'MONTH', 'YEAR'),
+  `ad_duration_to` BIGINT,
   `duration_from` BIGINT,
   `duration_to` BIGINT,
   `seen` INT(20),
@@ -21,21 +20,24 @@ CREATE TABLE IF NOT EXISTS kudaki_events (
   `created_at` BIGINT UNSIGNED,
   FULLTEXT(`name`, `description`, `venue`)
 );
-CREATE TABLE IF NOT EXISTS prices (
-  `id` BIGINT UNSIGNED NOT NULL PRIMARY KEY AUTO_INCREMENT,
-  `uuid` VARCHAR(64) NOT NULL UNIQUE,
-  `creator_user_uuid` VARCHAR(64) NOT NULL,
-  `duration` BIGINT,
-  `duration_unit` ENUM('HOUR', 'DAY', 'WEEK', 'MONTH', 'YEAR')
-);
-CREATE TABLE IF NOT EXISTS invoices (
+CREATE TABLE IF NOT EXISTS doku_invoices (
   `id` BIGINT UNSIGNED NOT NULL PRIMARY KEY AUTO_INCREMENT,
   `uuid` VARCHAR(64) NOT NULL UNIQUE,
   `kudaki_event_uuid` VARCHAR(64) NOT NULL,
-  `price_uuid` VARCHAR(64) NOT NULL,
-  `total_price` INT(20),
-  `status` ENUM('UNPAID', 'PAID'),
+  `mall_id` INT(20),
+  `chain_merchant` INT(20),
+  `amount` INT(20),
+  `purchase_amount` INT(20),
+  `transaction_id_merchant` VARCHAR(255),
+  `words` VARCHAR(255),
+  `request_date_time` BIGINT UNSIGNED,
+  `currency` INT(20),
+  `purchase_currency` INT(20),
+  `session_id` VARCHAR(255),
+  `name` VARCHAR(128),
+  `email` VARCHAR(254),
+  `basket` TEXT,
   `created_at` BIGINT UNSIGNED,
-  FOREIGN KEY(kudaki_event_uuid) REFERENCES kudaki_events(uuid) ON DELETE CASCADE,
-  FOREIGN KEY(price_uuid) REFERENCES prices(uuid)
+  `status` ENUM('NEW', 'SUCCESS', 'FAILED'),
+  FOREIGN KEY(kudaki_event_uuid) REFERENCES kudaki_events(uuid) ON DELETE CASCADE
 );

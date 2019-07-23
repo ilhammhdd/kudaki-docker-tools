@@ -8,6 +8,7 @@ CREATE TABLE IF NOT EXISTS storefronts(
   `user_uuid` VARCHAR(64),
   `total_item` INT(20),
   `rating` DECIMAL(4, 3),
+  `total_raw_rating` DECIMAL(65, 3),
   `created_at` BIGINT UNSIGNED
 );
 CREATE TABLE IF NOT EXISTS items(
@@ -22,7 +23,7 @@ CREATE TABLE IF NOT EXISTS items(
   `description` TEXT,
   `photo` VARCHAR(255),
   `rating` DECIMAL(4, 3),
-  `total_raw_rating` DECIMAL(65,3),
+  `total_raw_rating` DECIMAL(65, 3),
   `length` INT(20),
   `width` INT(20),
   `height` INT(20),
